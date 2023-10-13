@@ -8,7 +8,7 @@ steps:
     - |
       docker build -t node-app -f dockerfile .
       docker images
-      docker tag node-app asia-south1-docker.pkg.dev/niveus-gcp-training-1/shreyas-regisrty/node-app:a1
+      docker tag node-app asia-south1-docker.pkg.dev/niveus-gcp-training-1/simi-repo/node-app:a1
       docker push asia-south1-docker.pkg.dev/niveus-gcp-training-1/simi-repo/node-app:a1
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
