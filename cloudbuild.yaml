@@ -13,5 +13,15 @@ steps:
   args:
     - '-c'
     - |
+      gcloud auth list
+      gcloud config list
       gcloud auth configure-docker asia-south1-docker.pkg.dev
+
+
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args:
+    - '-c'
+    - |
       docker push asia-south1-docker.pkg.dev/niveus-gcp-training-1/simi-repo/node-js-build
+      
