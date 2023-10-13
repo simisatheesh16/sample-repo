@@ -6,10 +6,8 @@ steps:
   args:
     - '-c'
     - |
-      docker build -t node-app -f dockerfile .
-      docker images
-      docker tag node-app asia-south1-docker.pkg.dev/niveus-gcp-training-1/simi-repo/node-app:latest
-      docker push asia-south1-docker.pkg.dev/niveus-gcp-training-1/simi-repo/node-app:latest
+      docker build -t node-app asia-south1-docker.pkg.dev/niveus-gcp-training-1/simi-repo/node-app:latest .
+      
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
   args:
@@ -17,3 +15,5 @@ steps:
     - |
       gcloud auth list
       gcloud config list
+      gcloud auth configure-docker asia-south1-docker.pkg.dev
+      docker push asia-south1-docker.pkg.dev/niveus-gcp-training-1/simi-repo/node-app:latest
